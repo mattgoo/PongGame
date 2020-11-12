@@ -32,6 +32,8 @@ public class GameView extends View{
 
         canvas.drawCircle(500, 10, 20, paint);
 
+        canvas.drawLine((width/2)-100, (height/2), (width/2)+100, (height/2)+10, paint);
+
     }
 
     public Game getGame(){
