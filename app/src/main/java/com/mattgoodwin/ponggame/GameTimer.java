@@ -4,14 +4,16 @@ import java.util.TimerTask;
 
 public class GameTimer extends TimerTask {
 
-    private Ball cView;
+    private GameView cView;
 
-    public GameTimer(Ball view){
+    public GameTimer(GameView view){
         cView = view;
     }
 
     public void run(){
-        cView.moveBall();
-        cView.postInvalidate();
+        //if(paused != true){
+            //cView.moveBall();
+            cView.postInvalidate();
+           // )
     }
 }

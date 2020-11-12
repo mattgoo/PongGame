@@ -1,12 +1,10 @@
 package com.mattgoodwin.ponggame;
 
         import androidx.appcompat.app.AppCompatActivity;
-
-        import android.app.AlertDialog;
-        import android.content.DialogInterface;
         import android.graphics.Point;
         import android.os.Bundle;
-        import android.view.View;
+        import android.view.GestureDetector;
+        import android.view.MotionEvent;
 
         import java.util.Timer;
 
@@ -14,6 +12,7 @@ public class GameActivity extends AppCompatActivity {
 
     public int height;
     public int width;
+    private GestureDetector detector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,25 +21,50 @@ public class GameActivity extends AppCompatActivity {
         Point size = new Point( );
         getWindowManager( ).getDefaultDisplay( ).getSize( size );
 
-        Ball view = new Ball( this , size.x, size.y);
+        GameView view = new GameView( this , size.x, size.y);
         setContentView( view );
+
+        //TouchHandler th = new TouchHandler();
+        //detector = new GestureDetector( this, th );
+        //detector.setOnDoubleTapListener( th );
+
 
         Timer gameTimer = new Timer();
         GameTimer task = new GameTimer( view );
         gameTimer.schedule(task, 0L, 1L);
     }
 
-    public void alertDialog(){
-        finish();
+    /*
+
+    public boolean onTouchEvent( MotionEvent event ) {
+        detector.onTouchEvent( event );
+        return true;
     }
 
-    /*
-    On Touch
+    public class TouchHandler extends GestureDetector.SimpleOnGestureListener {
+        public boolean onDoubleTapEvent( MotionEvent event ) {
+            return true;
+        }
 
-    Timer gameTimer = new Timer();
-    GameTimer task = new GameTimer( view );
-    gameTimer.schedule(task, 0L, 100L);
-     */
+        public boolean onSingleTapConfirmed( MotionEvent event ) {
+            // update the cannon positio
+            return true;
+        }
+
+        public boolean onScroll( MotionEvent event1, MotionEvent event2, float d1, float d2 ) {
+            // update the cannon position
+            updateCannon( event2 );
+            return true;
+        }
+
+        public void updateCannon( MotionEvent event ) {
+            float x = event.getX( ) - game.getCannonCenter().x;
+            float y = game.getCannonCenter().y - event.getY();
+            float angle = ( float ) Math.atan2( y, x );
+            game.setCannonAngle( angle );
+
+        }
+        */
 
 
 }
