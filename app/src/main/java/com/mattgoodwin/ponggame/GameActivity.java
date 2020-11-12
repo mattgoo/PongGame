@@ -1,6 +1,8 @@
 package com.mattgoodwin.ponggame;
 
         import androidx.appcompat.app.AppCompatActivity;
+
+        import android.graphics.Point;
         import android.os.Bundle;
         import android.util.DisplayMetrics;
         import java.util.Timer;
@@ -15,13 +17,11 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        Ball view = new Ball( this );
-        setContentView( view );
+        Point size = new Point( );
+        getWindowManager( ).getDefaultDisplay( ).getSize( size );
 
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        height = displayMetrics.heightPixels;
-        width = displayMetrics.widthPixels;
+        Ball view = new Ball( this , size.x);
+        setContentView( view );
 
         Timer gameTimer = new Timer();
         GameTimer task = new GameTimer( view );
