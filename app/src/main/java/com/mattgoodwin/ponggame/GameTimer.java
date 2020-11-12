@@ -11,7 +11,7 @@ public class GameTimer extends TimerTask {
     }
 
     public void run(){
-        cView.move();
+        cView.moveBall();
         cView.postInvalidate();
     }
 }
