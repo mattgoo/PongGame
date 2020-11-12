@@ -9,7 +9,7 @@ package com.mattgoodwin.ponggame;
         import java.util.Timer;
 
 public class GameActivity extends AppCompatActivity {
-
+    private Game game;
     public int height;
     public int width;
     private GestureDetector detector;
@@ -32,6 +32,8 @@ public class GameActivity extends AppCompatActivity {
         Timer gameTimer = new Timer();
         GameTimer task = new GameTimer( view );
         gameTimer.schedule(task, 0L, 1L);
+
+        game = view.getGame();
     }
 
     /*

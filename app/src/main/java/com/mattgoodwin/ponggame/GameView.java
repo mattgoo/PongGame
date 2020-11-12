@@ -21,19 +21,25 @@ public class GameView extends View{
         this.width = width;
         this.height = height;
 
-        paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setStrokeWidth(10.0f);
-        paint.setColor(Color.BLACK);
+        game = new Game(1f);
     }
 
     public void onDraw( Canvas canvas ) {
         super.onDraw( canvas );
 
-        canvas.drawCircle(500, 10, 20, paint);
+        paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setStrokeWidth(10.0f);
+        paint.setColor(Color.BLACK);
 
-        canvas.drawLine((width/2)-100, (height/2), (width/2)+100, (height/2)+10, paint);
+        canvas.drawCircle(width/2, 20, 20, paint);
 
+        paint.setStrokeWidth(30f);
+
+        float startHeight = (float)(height * .85);
+
+        canvas.drawLine((width/2)-100, startHeight, (width/2)+100, startHeight, paint);
+        //canvas.drawLine(20, 20, 40, 40, paint);
     }
 
     public Game getGame(){
