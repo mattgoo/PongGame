@@ -12,7 +12,7 @@ public class Ball {
 
     public Ball(float newBallSpeed, int width, int height){
         setBallSpeed(newBallSpeed);
-     }
+    }
 
     public void setBallSpeed( float newBulletSpeed ) {
         ballSpeedX = newBulletSpeed;
@@ -25,8 +25,8 @@ public class Ball {
     }
 
     public void moveBall( boolean down, boolean right) {
-            ballCenter.x += ballSpeedX * deltaTime;
-            ballCenter.y += ballSpeedY * deltaTime;
+        ballCenter.x += ballSpeedX * deltaTime;
+        ballCenter.y += ballSpeedY * deltaTime;
     }
 
     public void changeDirectionX(){

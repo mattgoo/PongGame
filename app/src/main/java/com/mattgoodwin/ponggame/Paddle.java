@@ -19,8 +19,20 @@ public class Paddle {
         this.disWidth = disWidth;
         this.disHeight = disHeight;
 
+        pWidth = disWidth/10;
+        pHeight = disHeight/20;
 
+        paddleX = disWidth/2;
+        paddleY = (int) (disHeight * .85);
+
+        paddle = new RectF(paddleX - pWidth, paddleY, paddleX + pWidth, paddleY - pHeight);
     }
+
+    public RectF getPaddle(){
+        return paddle;
+    }
+
+
 
 
 }

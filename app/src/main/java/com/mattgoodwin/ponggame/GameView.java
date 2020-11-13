@@ -21,7 +21,6 @@ public class GameView extends View{
         this.width = width;
         this.height = height;
 
-        game = new Game(1f);
     }
 
     public void onDraw( Canvas canvas ) {
@@ -41,11 +40,6 @@ public class GameView extends View{
         //canvas.drawLine((width/2)-100, startHeight, (width/2)+100, startHeight, paint);
         //canvas.drawLine(20, 20, 40, 40, paint);
     }
-
-    public Game getGame(){
-        return game;
-    }
-
 
 
 
