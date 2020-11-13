@@ -1,14 +1,52 @@
 package com.mattgoodwin.ponggame;
 
 import android.graphics.Point;
+import android.graphics.RectF;
 
 public class Ball {
+    private float ballRadius;
     private float ballSpeedX;
     private float ballSpeedY;
-    private Point ballCenter;
+    private RectF ball;
     private int deltaTime;
-    private boolean down = true;
-    private boolean right = true;
+
+    public Ball(int width, int height){
+        ballRadius = width/20;
+        ball = new RectF();
+        ballSpeedY = height/5;
+        ballSpeedX = width/2;
+        deltaTime = 10;
+    }
+
+    public RectF getBall(){
+        return ball;
+    }
+
+    public void moveBall() {
+        ball.left += ballSpeedX;
+        ball.right = ball.left + ballRadius;
+        ball.top += ballSpeedY;
+        ball.bottom = ball.top - ballRadius;
+    }
+
+    public void changeDirectionX(){
+        ballSpeedX = -ballSpeedX;
+    }
+
+    public void changeDirectionY(){
+        ballSpeedY = -ballSpeedY;
+    }
+
+    public void reset(int disWidth, int disHeight){
+        ball.left = disWidth / 2;
+        ball.top = 20;
+        ball.right = disWidth / 2 + ballRadius;
+        ball.bottom = 20 + ballRadius;
+    }
+
+
+
+    /*
 
     public Ball(float newBallSpeed, int width, int height){
         setBallSpeed(newBallSpeed);
@@ -24,7 +62,7 @@ public class Ball {
             deltaTime = newDeltaTime;
     }
 
-    public void moveBall( boolean down, boolean right) {
+    public void moveBall() {
         ballCenter.x += ballSpeedX * deltaTime;
         ballCenter.y += ballSpeedY * deltaTime;
     }
@@ -46,5 +84,11 @@ public class Ball {
         ballCenter = new Point(newBallPos.x, newBallPos.y);
     }
 
+    public Rect getRect(){
+        return
+    }
+
+
+     */
 
 }

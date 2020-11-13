@@ -22,10 +22,15 @@ public class Paddle {
         pWidth = disWidth/10;
         pHeight = disHeight/20;
 
-        paddleX = disWidth/2;
-        paddleY = (int) (disHeight * .85);
+        paddleX = disWidth/4;
+        paddleY = disHeight/2;
 
         paddle = new RectF(paddleX - pWidth, paddleY, paddleX + pWidth, paddleY - pHeight);
+    }
+
+    public void movePaddle(){
+        paddle.left = paddleX - pWidth;
+        paddle.right = paddleX + pWidth;
     }
 
     public RectF getPaddle(){

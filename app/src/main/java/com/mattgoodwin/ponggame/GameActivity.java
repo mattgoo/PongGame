@@ -5,10 +5,39 @@ package com.mattgoodwin.ponggame;
         import android.os.Bundle;
         import android.view.GestureDetector;
         import android.view.MotionEvent;
-
         import java.util.Timer;
 
 public class GameActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Point size = new Point();
+        getWindowManager().getDefaultDisplay().getSize(size);
+
+        GameView view = new GameView(this, size.x, size.y);
+        setContentView(view);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Tell the pongView resume method to execute
+        //GameView.resume();
+    }
+
+    // This method executes when the player quits the game
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //GameView.pause();
+    }
+
+
+
+    /*
     private Game game;
     public int height;
     public int width;
