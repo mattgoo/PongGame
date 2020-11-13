@@ -36,9 +36,9 @@ public class GameView extends View{
 
         paint.setStrokeWidth(30f);
 
-        float startHeight = (float)(height * .85);
+        //float startHeight = (float)(height * .85);
 
-        canvas.drawLine((width/2)-100, startHeight, (width/2)+100, startHeight, paint);
+        //canvas.drawLine((width/2)-100, startHeight, (width/2)+100, startHeight, paint);
         //canvas.drawLine(20, 20, 40, 40, paint);
     }
 

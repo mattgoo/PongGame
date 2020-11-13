@@ -2,7 +2,7 @@ package com.mattgoodwin.ponggame;
 
 import android.graphics.Point;
 
-public class Game {
+public class Ball {
     private float ballSpeedX;
     private float ballSpeedY;
     private Point ballCenter;
@@ -10,7 +10,7 @@ public class Game {
     private boolean down = true;
     private boolean right = true;
 
-    public Game(float newBallSpeed, int width, int height){
+    public Ball(float newBallSpeed, int width, int height){
         setBallSpeed(newBallSpeed);
      }
 
@@ -39,7 +39,7 @@ public class Game {
 
     public void reset(int width, int height){
         ballCenter.x = width / 2;
-        ballCenter.y = (int) (height * .85);
+        ballCenter.y = 20 ;
     }
 
     public void setBallPos(Point newBallPos){
